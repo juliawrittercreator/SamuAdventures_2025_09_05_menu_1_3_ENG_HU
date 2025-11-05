@@ -27,6 +27,7 @@ struct Main_Menu: View {
     @State private var showMenu = false
     @State private var showLanguageMenu = false
     @State private var showChooseReader = false
+    @State private var showCharacters = false
     
     // Language manager
     @EnvironmentObject var languageManager: LanguageManager
@@ -197,8 +198,8 @@ struct Main_Menu: View {
                     
                     VStack(alignment: .leading, spacing: 10) {
                         Button(LocalizedText.text(for: "characters", lang: languageManager.currentLanguage)) {
-                            print("Characters tapped")
                             withAnimation { showMenu = false }
+                            showCharacters = true
                         }
                         .costummenuItemStyle()
                         
@@ -262,6 +263,9 @@ struct Main_Menu: View {
             // ✅ New navigation destination
             .navigationDestination(isPresented: $showChooseReader) {
                 ChooseReaderView()
+            }
+            .navigationDestination(isPresented: $showCharacters) {
+                CharactersView()
             }
         }
     }
