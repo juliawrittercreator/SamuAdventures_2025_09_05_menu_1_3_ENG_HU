@@ -77,7 +77,7 @@ struct CharactersView: View {
                 Button(action: { dismiss() }) {
                     HStack {
                         Image(systemName: "chevron.left")
-                        Text("Back")
+                        Text(LocalizedText.text(for: "back", lang: languageManager.currentLanguage))
                     }
                     .foregroundColor(Color(red: 49/255, green: 94/255, blue: 38/255))
                 }
