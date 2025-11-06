@@ -136,8 +136,8 @@ struct Chapter1View_V2: View {
                     Spacer()
                     
                     VStack(spacing: 8) {
-                        // Progress text
-                        Text("Page \(selectedTab + 1) of \(totalPages)")
+                        // Progress text (show story page numbers 1-12, excluding voice selection page 0)
+                        Text("Page \(selectedTab) of \(totalPages - 1)")
                             .font(.system(size: 16, weight: .medium))
                             .foregroundColor(.white)
                             .padding(.horizontal, 12)
@@ -147,9 +147,9 @@ struct Chapter1View_V2: View {
                                     .fill(Color.black.opacity(0.6))
                             )
                         
-                        // Progress bar
+                        // Progress bar (show progress for story pages only, 12 dots for pages 1-12)
                         HStack(spacing: 4) {
-                            ForEach(0..<totalPages, id: \.self) { index in
+                            ForEach(1..<totalPages, id: \.self) { index in
                                 Capsule()
                                     .fill(index <= selectedTab ? Color.green : Color.white.opacity(0.3))
                                     .frame(width: 8, height: 8)

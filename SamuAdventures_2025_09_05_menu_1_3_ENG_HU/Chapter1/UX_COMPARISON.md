@@ -14,11 +14,12 @@ The original version provides a clean, minimalist reading experience:
 The V2 version adds several UX enhancements for testing:
 
 ### 1. **Custom Progress Indicator**
-- Displays "Page X of 13" at the top right
-- Visual progress bar with 13 dots showing current position
+- Displays "Page X of 12" at the top right (for story pages 1-12)
+- Visual progress bar with 12 dots showing current position
 - Green highlight for current and completed pages
 - Semi-transparent dark background for readability
 - Auto-hides during swipe gestures to maintain immersion
+- Hidden on voice selection screen (page 0)
 
 ### 2. **Navigation Buttons**
 - "Previous" and "Next" buttons at the bottom

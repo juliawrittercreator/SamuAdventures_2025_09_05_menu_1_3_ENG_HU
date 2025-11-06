@@ -7,7 +7,7 @@ This directory contains the implementation files for Chapter 1 of the Samu Adven
 ### Main Views
 - **`Chapter1View.swift`** - Original version with minimal UI (Version 1)
 - **`Chapter1View_V2.swift`** - Enhanced version with progress indicators and navigation buttons (Version 2)
-- **`Chapter1ViewHUN.swift`** - Hungarian language version (in Chater1_HUN/ subdirectory)
+- **`Chapter1ViewHUN.swift`** - Hungarian language version (in Chapter1_HUN/ subdirectory)
 - **`Chapter1ChooseVoiceView.swift`** - Voice/reader selection screen
 
 ### Interactive Elements
@@ -46,8 +46,8 @@ This directory contains the implementation files for Chapter 1 of the Samu Adven
 ### Version 2 (Enhanced UX)
 ```
 ┌─────────────────────────────────┐
-│                      [Page 5/13]│ ← Progress indicator
-│                      [●●●●●○○○○]│ ← Visual progress bar
+│                      [Page 5/12]│ ← Progress indicator
+│                      [●●●●●○○○○]│ ← Visual progress bar (12 dots)
 │                                 │
 │         Story Content           │
 │                                 │
@@ -55,8 +55,8 @@ This directory contains the implementation files for Chapter 1 of the Samu Adven
 │  [← Previous]      [Next →]     │ ← Navigation buttons
 └─────────────────────────────────┘
 ```
-- Progress indicator (top right)
-- Visual progress bar
+- Progress indicator (top right, hidden on voice selection screen)
+- Visual progress bar (12 dots for story pages 1-12)
 - Previous/Next buttons
 - Better wayfinding
 
