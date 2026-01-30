@@ -27,6 +27,7 @@ struct Main_Menu: View {
     @State private var showMenu = false
     @State private var showLanguageMenu = false
     @State private var showChooseReader = false
+    @State private var showDrawing = false
     
     // Language manager
     @EnvironmentObject var languageManager: LanguageManager
@@ -202,7 +203,13 @@ struct Main_Menu: View {
                         }
                         .costummenuItemStyle()
                         
-                        Button(LocalizedText.text(for: "Readers", lang: languageManager.currentLanguage)) {
+                        Button(LocalizedText.text(for: "drawing", lang: languageManager.currentLanguage)) {
+                            withAnimation { showMenu = false }
+                            showDrawing = true
+                        }
+                        .costummenuItemStyle()
+                        
+                        Button(LocalizedText.text(for: "readers", lang: languageManager.currentLanguage)) {
                             withAnimation { showMenu = false }
                             showChooseReader = true
                         }
@@ -262,6 +269,9 @@ struct Main_Menu: View {
             // ✅ New navigation destination
             .navigationDestination(isPresented: $showChooseReader) {
                 ChooseReaderView()
+            }
+            .navigationDestination(isPresented: $showDrawing) {
+                DrawingCanvasView()
             }
         }
     }

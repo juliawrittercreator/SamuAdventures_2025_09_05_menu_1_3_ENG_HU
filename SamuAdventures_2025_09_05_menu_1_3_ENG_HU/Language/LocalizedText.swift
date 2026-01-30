@@ -27,7 +27,12 @@ struct LocalizedText {
             "chapter8": "The Dancing Flame",
             "chapter9": "The Sound Catcher",
             "chapter10": "The River Disappeared",
-            "chapter11": "Birthday Waffles"
+            "chapter11": "Birthday Waffles",
+            "drawing": "Drawing",
+            "back": "Back",
+            "clear": "Clear",
+            "line_width": "Brush Size:",
+            "readers": "Readers"
         ],
         .hungarian: [
             "title": "Samu kalandjai",
@@ -46,7 +51,12 @@ struct LocalizedText {
             "chapter8": "A táncoló láng",
             "chapter9": "A hangfogó",
             "chapter10": "Eltűnt a folyó",
-            "chapter11": "Születésnapi gofri"
+            "chapter11": "Születésnapi gofri",
+            "drawing": "Rajzolás",
+            "back": "Vissza",
+            "clear": "Törlés",
+            "line_width": "Ecset méret:",
+            "readers": "Felolvasók"
         ]
     ]
     
