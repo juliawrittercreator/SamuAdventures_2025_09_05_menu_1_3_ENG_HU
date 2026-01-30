@@ -209,7 +209,7 @@ struct Main_Menu: View {
                         }
                         .costummenuItemStyle()
                         
-                        Button(LocalizedText.text(for: "Readers", lang: languageManager.currentLanguage)) {
+                        Button(LocalizedText.text(for: "readers", lang: languageManager.currentLanguage)) {
                             withAnimation { showMenu = false }
                             showChooseReader = true
                         }

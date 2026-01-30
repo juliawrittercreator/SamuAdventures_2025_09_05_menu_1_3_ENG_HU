@@ -16,9 +16,8 @@ struct DrawingLine {
 struct DrawingCanvasView: View {
     @State private var currentLine = DrawingLine(points: [], color: .black, lineWidth: 5)
     @State private var lines: [DrawingLine] = []
-    @State private var selectedColor: Color = .black
+    @State private var selectedColorIndex: Int = 0
     @State private var lineWidth: CGFloat = 5
-    @State private var showColorPicker = false
     
     @EnvironmentObject var languageManager: LanguageManager
     @Environment(\.dismiss) var dismiss
@@ -28,6 +27,21 @@ struct DrawingCanvasView: View {
         Color(red: 139/255, green: 69/255, blue: 19/255), // brown
         Color(red: 128/255, green: 128/255, blue: 128/255)  // gray
     ]
+    
+    var selectedColor: Color {
+        availableColors[selectedColorIndex]
+    }
+    
+    // Helper function to create path from points
+    private func createPath(from points: [CGPoint]) -> Path {
+        var path = Path()
+        guard let firstPoint = points.first else { return path }
+        path.move(to: firstPoint)
+        for point in points.dropFirst() {
+            path.addLine(to: point)
+        }
+        return path
+    }
     
     var body: some View {
         ZStack {
@@ -87,13 +101,7 @@ struct DrawingCanvasView: View {
                     // Drawing area
                     Canvas { context, size in
                         for line in lines {
-                            var path = Path()
-                            if let firstPoint = line.points.first {
-                                path.move(to: firstPoint)
-                                for point in line.points.dropFirst() {
-                                    path.addLine(to: point)
-                                }
-                            }
+                            let path = createPath(from: line.points)
                             context.stroke(
                                 path,
                                 with: .color(line.color),
@@ -103,11 +111,7 @@ struct DrawingCanvasView: View {
                         
                         // Draw current line
                         if !currentLine.points.isEmpty {
-                            var path = Path()
-                            path.move(to: currentLine.points[0])
-                            for point in currentLine.points.dropFirst() {
-                                path.addLine(to: point)
-                            }
+                            let path = createPath(from: currentLine.points)
                             context.stroke(
                                 path,
                                 with: .color(currentLine.color),
@@ -147,11 +151,11 @@ struct DrawingCanvasView: View {
                                     .frame(width: 44, height: 44)
                                     .overlay(
                                         Circle()
-                                            .stroke(selectedColor == color ? Color.blue : Color.clear, lineWidth: 3)
+                                            .stroke(selectedColorIndex == index ? Color.blue : Color.clear, lineWidth: 3)
                                     )
                                     .onTapGesture {
-                                        selectedColor = color
-                                        currentLine.color = color
+                                        selectedColorIndex = index
+                                        currentLine.color = selectedColor
                                     }
                             }
                         }

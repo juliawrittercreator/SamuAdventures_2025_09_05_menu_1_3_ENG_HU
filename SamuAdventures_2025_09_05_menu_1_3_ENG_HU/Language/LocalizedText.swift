@@ -32,7 +32,7 @@ struct LocalizedText {
             "back": "Back",
             "clear": "Clear",
             "line_width": "Brush Size:",
-            "Readers": "Readers"
+            "readers": "Readers"
         ],
         .hungarian: [
             "title": "Samu kalandjai",
@@ -56,7 +56,7 @@ struct LocalizedText {
             "back": "Vissza",
             "clear": "Törlés",
             "line_width": "Ecset méret:",
-            "Readers": "Felolvasók"
+            "readers": "Felolvasók"
         ]
     ]
     
